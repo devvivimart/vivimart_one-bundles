@@ -1,0 +1,32 @@
+name: Deploy Vivimart One OTA
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+
+            # Pull latest bundle + version.json from GitHub
+            cd /www/wwwroot/ota_updates/vivimart_one
+            git pull origin main
+
+            # Reload Nginx to flush any file descriptor cache
+            nginx -s reload || service nginx reload || systemctl reload nginx || true
+
+            echo "âœ… vivimart_one OTA deployed at $(date)"
+            echo "ðŸ“„ Active version.json:"
+            cat version.json
