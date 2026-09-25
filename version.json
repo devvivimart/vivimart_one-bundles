@@ -1,11 +1,11 @@
 {
-  "version": "1.0.10",
-  "version_code": 11,
+  "version": "1.0.11",
+  "version_code": 12,
   "bundleUrl": "https://update.vivimart.in/vivimart_one/bundles/index.android.bundle",
-  "sha256": "66c6da309de9773043b917aad8ec7f42cf69a3c4e96840972bf128dc1b4a370f",
+  "sha256": "20e8fbaf256923294c20ec0162298d4edc8a74e24c191d43e8e977e3a74db849",
   "minimumNativeVersion": "1.0.8",
   "maximumNativeVersion": "1.0.x",
   "token": "VIVIMART_ONE_SECRET_vivimart@321",
   "force_update": false,
-  "released_at": "2026-09-25T04:46:03Z"
+  "released_at": "2026-09-25T05:32:34Z"
 }
